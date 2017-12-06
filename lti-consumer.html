@@ -1,0 +1,141 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="lti-consumer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `lti-consumer`
+     * A LTI Consumer
+     * http://www.imsglobal.org/basic-overview-how-lti-works
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LtiConsumer extends Polymer.Element {
+      static get is() { return 'lti-consumer'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'lti-consumer'
+          },
+          // This is an opaque unique identifier that the TC guarantees
+          // will be unique within the TC for every placement of the
+          // resource link. Example
+          // resource_link_id=88391-e1919-bb3456
+
+          resource_link_id: {
+            type: String,
+            value: 'resource_link_id'
+          },
+
+          // A title for the resource. This is the clickable text that
+          // appears in the link. Example
+          // resource_link_title=Week One Wiki
+          resource_link_title: {
+            type: String,
+            value: 'resource_link_title'
+          },
+          // Uniquely identifies the user. This should not contain any
+          // identifying information for the user. Best practice is that
+          // this field should be a TC-generated longterm “primary key”
+          // to the user record – not the “logical key". This parameter
+          // is recommended. Example
+          // user_id=0ae836b9-7fc06f-66ac545
+          user_id: {
+            type: String,
+            value: 'user_id'
+          },
+          // This image is suitable for use as a "profile picture" or an
+          // avatar representing the user. Example
+          // user_image=http://....
+          user_image: {
+            type: String,
+            value: 'user_image'
+          },
+          // This attribute is comma-separated list of one or more roles.
+          // Instructor and Learner are the most commonly used roles.
+          // Example:  roles=Instructor
+          roles: {
+            type: String,
+            value: 'roles'
+          },
+          // These fields contain identifying information about the user
+          // account that is performing this launch. These parameters are
+          // recommended unless they are suppressed because of privacy
+          // settings in the TC. Examples:
+          // lis_person_name_given=Jane
+          // lis_person_name_family=Public
+          // lis_person_name_full=Jane Q. Public
+          // lis_person_contact_email_primary=usr@schl.edu
+          lis_person_name_given: {
+            type: String,
+            value: 'lis_person_name_given'
+          },
+          lis_person_name_family: {
+            type: String,
+            value: 'lis_person_name_family'
+          },
+          lis_person_name_full: {
+            type: String,
+            value: 'lis_person_name_full'
+          },
+          lis_person_contact_email_primary: {
+            type: String,
+            value: 'lis_person_contact_email_primary'
+          },
+
+
+          // This is an opaque identifier that uniquely identifies the
+          // context that contains the link being launched. Example
+          // context_id=82-006f-6783c545
+          context_id: {
+            type: String,
+            value: 'context_id'
+          },
+          // A title of the context – it should be about the length of a line.
+          // The label for the context is intended to fit in a column.
+          // Examples
+          // context_title=Design of Personal Environments
+          // context_label=SI182
+          context_title: {
+            type: String,
+            value: 'context_title'
+          },
+          context_label: {
+            type: String,
+            value: 'context_label'
+          },
+
+          // These and other OAuth fields are used to properly sign and
+          // secure the contents of the launch data. The oauth_consumer_key
+          // is the key that was originally issued by the Tool Provider
+          // and entered into the Tool Consumer by the administrator or
+          // instructor as shown in the sample launch form at the end
+          // of this document. Examples
+          // oauth_consumer_key=lmsng.school.edu
+          // oauth_signature=Xddn2gaKxCdcc%3D
+          oauth_consumer_key: {
+            type: String,
+            value: 'oauth_consumer_key'
+          },
+          oauth_signature: {
+            type: String,
+            value: 'oauth_signature'
+          },
+        };
+      }
+    }
+
+    window.customElements.define(LtiConsumer.is, LtiConsumer);
+  </script>
+</dom-module>
